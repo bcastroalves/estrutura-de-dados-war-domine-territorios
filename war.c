@@ -21,6 +21,10 @@
 #include <time.h>
 #include <locale.h>
 
+#ifdef _WIN32
+#include <windows.h>
+#endif
+
 // --- Constantes Globais ---
 // Definem valores fixos para o número de territórios, missões e tamanho máximo de strings, facilitando a manutenção.
 #define MAX_STRING_NOME 30
@@ -51,7 +55,14 @@ void limparBufferEntrada();
 // --- Função Principal (main) ---
 // Função principal que orquestra o fluxo do jogo, chamando as outras funções em ordem.
 int main() {
-    setlocale(LC_ALL, "Portuguese"); // Define o locale para Portugues
+    // Define o locale para o sistema (mais portátil)
+    setlocale(LC_ALL, "");
+
+    // No Windows, force o console para UTF-8 para exibir acentuação corretamente
+    #ifdef _WIN32
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
+    #endif
     int numTerritorios;
     
     // Inicializa a semente para números aleatórios
