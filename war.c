@@ -19,6 +19,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <time.h>
+#include <locale.h>
 
 // --- Constantes Globais ---
 // Definem valores fixos para o número de territórios, missões e tamanho máximo de strings, facilitando a manutenção.
@@ -50,6 +51,7 @@ void limparBufferEntrada();
 // --- Função Principal (main) ---
 // Função principal que orquestra o fluxo do jogo, chamando as outras funções em ordem.
 int main() {
+    setlocale(LC_ALL, "Portuguese"); // Define o locale para Portugues
     int numTerritorios;
     
     // Inicializa a semente para números aleatórios
