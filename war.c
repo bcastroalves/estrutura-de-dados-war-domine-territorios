@@ -71,7 +71,7 @@ int main() {
     printf("=============================================\n");
     printf("BEM-VINDO AO JOGO WAR!\n");
     printf("=============================================\n");
-    printf("Digite a quantidade de territorios desejada: ");
+    printf("Digite a quantidade de territórios desejada: ");
     scanf("%d", &numTerritorios);
     limparBufferEntrada();
     
@@ -89,23 +89,23 @@ int main() {
     }
 
     printf("=============================================\n");
-    printf("Vamos cadastrar os %i territorios do nosso mundo:\n", numTerritorios);
+    printf("Vamos cadastrar os %i territórios do nosso mundo:\n", numTerritorios);
     
     // Cadastra os territórios iniciais.
     for (int i = 0; i < numTerritorios; i++) {
-        printf("--- Cadastrando o Territorio %i ---\n",i+1);
-        printf("Digite o nome do territorio: ");
+        printf("--- Cadastrando o Território %i ---\n",i+1);
+        printf("Digite o nome do território: ");
         fgets(mapa[i].nome, MAX_STRING_NOME, stdin);
         // Remove o '\n' deixado pelo fgets
         mapa[i].nome[strcspn(mapa[i].nome, "\n")] = '\0';
-        printf("Digite a cor do exercito: ");
+        printf("Digite a cor do exército: ");
         fgets(mapa[i].cor, MAX_STRING_COR, stdin);
         // Remove o '\n' deixado pelo fgets
         mapa[i].cor[strcspn(mapa[i].cor, "\n")] = '\0';
         
         // Validação do número de tropas
         do {
-            printf("Digite o numero de tropas (mínimo 1): ");
+            printf("Digite o número de tropas (mínimo 1): ");
             scanf("%d", &mapa[i].tropas);
             limparBufferEntrada();
             
@@ -121,10 +121,10 @@ int main() {
 
     // Exibe o estado atual dos territórios cadastrados.
     for (int j = 0; j < numTerritorios; j++) {
-        printf("\n--- Territorio %i ---\n",j+1);
+        printf("\n--- Território %i ---\n",j+1);
         printf("- Nome: %s", mapa[j].nome);
-        printf("- Cor do exercito: %s", mapa[j].cor);
-        printf("- Numero de tropas: %d\n", mapa[j].tropas);
+        printf("- Cor do exército: %s", mapa[j].cor);
+        printf("- Número de tropas: %d\n", mapa[j].tropas);
     }
     
     // Executa a fase de ataque
